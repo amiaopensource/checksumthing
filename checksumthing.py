@@ -35,21 +35,22 @@ def main():
 	
 	os.chdir(args.i)
 	for filename in glob.glob('*' + args.ie):
-	    with open(filename, 'r') as f:
+	    with open(filename, 'r+') as f:
 	        text = f.read()
 	        m = re.search('([0-9a-f]{' + str(hashLength) + '})',text, flags=re.IGNORECASE)
 	        hashValue = m.group()
 	        if args.c == 'lower':
 	            hashValue = hashValue.lower()
-	        if args.c == 'upper':
+	        elif args.c == 'upper':
 	            hashValue = hashValue.upper()
             if args.ns:
                 hashValue = args.b + hashValue + args.a
             else:
                 hashValue = args.b + ' ' + hashValue + ' ' + args.a
-            
-            print hashValue
 
+            f.seek(0)
+            f.write(hashValue)
+            f.truncate()
 
 	
 main()
