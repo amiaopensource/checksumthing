@@ -16,6 +16,9 @@ def main():
 	parser.add_argument('-t','--typeOfHash',dest='t',default='md5',help='Select the checksum type to process')
 	parser.add_argument('-ie','--inputExtension',dest='ie',default='.md5',help='Select the extension of the input files')
 	parser.add_argument('-c','--caseOutput',dest='c',default='lower',help='Define the case of the output hash letters. use lower or upper, defaults to lower')
+	parser.add_argument('-b','--before',dest='b',default='',help='Any text entered here will appear before the hash in the sidecar file')
+	parser.add_argument('-a','--after',dest='a',default='',help='Any text entered here will appear after the hash in the sidecar file')
+	parser.add_argument('-ns','--noSpace',dest='ns',default=False,help='if true, the script will not add padding spaces to the before and after strings')
 	
 	args = parser.parse_args()
 	
@@ -40,6 +43,11 @@ def main():
 	            hashValue = hashValue.lower()
 	        if args.c == 'upper':
 	            hashValue = hashValue.upper()
+            if args.ns:
+                hashValue = args.b + hashValue + args.a
+            else:
+                hashValue = args.b + ' ' + hashValue + ' ' + args.a
+            
             print hashValue
 
 
