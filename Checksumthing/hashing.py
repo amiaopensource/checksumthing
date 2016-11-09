@@ -30,7 +30,7 @@ def decorate_hash(pre_hash, hash_value, post_hash, no_space=False):
     if no_space:
         return pre_hash + hash_value + post_hash
     else:
-        return pre_hash + " " + hash_value + " " + post_hash.strip()
+        return pre_hash + " " + hash_value + " " + post_hash
 
 
 def modify_hash(hash_value, filepath, args):
@@ -104,7 +104,9 @@ def replace_file_parts(input_string, filepath, args):
         output_string = input_string.replace("{relativepath}", filepath.replace(args.outputPath, ""))     
 
     return output_string
-    
+
+
+#     DON'T USE THIS
 def add_hash_to_manitest(manifest_path, hash_path, hash):
     """
     :param manifest_path: path to the manifest file
