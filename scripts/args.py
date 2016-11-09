@@ -25,7 +25,10 @@ def get_args():
                         help='Any text entered here will appear after the hash in the sidecar file')
 
     parser.add_argument('-ns', '--noSpace', action='store_true',
-                        help='if true, the script will not add padding spaces to the before and after strings')
+                        help='if included, the script will not add padding spaces to the before and after strings')
+                        
+    parser.add_argument('-r', '--recursive', action='store_true',
+                        help='if true, the script will process all checksum files recursively through the input directory')
 
     return parser.parse_args()
     

@@ -28,8 +28,10 @@ def main():
     # Cycle through the given files of the inputExtension at the inputDirectory
 
     for root, dirs, files in os.walk(args.i):
-        if root != args.i:
-            continue
+        if not args.recursive:
+            #only use files at the root directory
+            if root != args.i:
+                continue
         for file_ in files:
             if os.path.splitext(file_)[1] != args.ie:
                 continue
