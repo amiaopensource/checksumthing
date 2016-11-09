@@ -1,3 +1,4 @@
+import os
 import re
 
 hash_lengths = {'md5': 32,
@@ -33,11 +34,10 @@ def decorate_hash(pre_hash, hash_value, post_hash, no_space=False):
         return pre_hash + " " + hash_value + " " + post_hash
 
 
-def modify_hash(hash_value, filepath, args):
+def modify_hash(hash_value, args):
     """
     Generates a new hash from an existing hash.
     :param hash_value: Original hash value to be modified
-    :param filepath: the path of the checksum files being processed
     :param args: User arguments from arg parse
     :return: Newly generated hash value
     """
@@ -50,17 +50,18 @@ def modify_hash(hash_value, filepath, args):
         new_hash = hash_value.upper()
     else:
         new_hash = hash_value
-    if hasattr(args, "ns"):
-    # if args.ns:
-        new_hash = args.b + new_hash + args.a
-    else:
-        before_text = replace_file_parts(args.b, filepath, args)
-        after_text = replace_file_parts(args.a, filepath, args)
-        if before_text != '':
-            before_text = before_text + ' '
-        if after_text != '':
-            after_text = ' ' + after_text
-        new_hash = before_text + new_hash + after_text
+
+    # if hasattr(args, "ns"):
+    # # if args.ns:
+    #     new_hash = args.b + new_hash + args.a
+    # else:
+    #     before_text = replace_file_parts(args.b, filepath, args)
+    #     after_text = replace_file_parts(args.a, filepath, args)
+    #     if before_text != '':
+    #         before_text = before_text + ' '
+    #     if after_text != '':
+    #         after_text = ' ' + after_text
+    #     new_hash = before_text + new_hash + after_text
         
 
     return new_hash
@@ -85,8 +86,9 @@ def get_hash_length(hash_name):
     :return:
     """
     return hash_lengths[hash_name]
-    
-def replace_file_parts(input_string, filepath, args):
+
+
+def create_decoration(input_string, filepath, args):
     """
     Replaces special strings with particular strings
     
@@ -97,11 +99,9 @@ def replace_file_parts(input_string, filepath, args):
     """
     
     filepath = filepath.replace(args.ie, "")
-    
-    output_string = input_string.replace("{filename}", filepath.split("/")[-1])
+
+    output_string = input_string.replace("{filename}", os.path.basename(filepath))
     output_string = output_string.replace("{fullpath}", filepath)
-    if args.outputPath:
-        output_string = input_string.replace("{relativepath}", filepath.replace(args.outputPath, ""))     
 
     return output_string
 
