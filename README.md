@@ -17,3 +17,6 @@ Here are the flags you can use:
 * -
 
 
+For more information please see the [online documentation][1]. 
+
+[1]: https://amiaopensource.github.io/checksumthing/
