@@ -68,12 +68,3 @@ def get_hash_length(hash_name):
     :return:
     """
     return hash_lengths[hash_name]
-    # if t == 'md5':
-    #     hash_length = 32
-    # elif t == 'sha1':
-    #     hash_length = 40
-    # elif t == 'sha256':
-    #     hash_length = 64
-    # else:
-    #     raise Exception("invalid hash value")
-    # return hash_length
