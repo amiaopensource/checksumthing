@@ -26,19 +26,24 @@ def main():
         exit()
 
     # Cycle through the given files of the inputExtension at the inputDirectory
-    os.chdir(args.i)
-    files = glob.glob('*' + args.ie)
 
-    for filename in files:
+    for root, dirs, files in os.walk(args.i):
+        if root != args.i:
+            continue
+        for file_ in files:
+            if os.path.splitext(file_)[1] != args.ie:
+                continue
+            
+            filepath = os.path.join(root, file_)
+            
+            # Read the existing hash
+            old_hash = hashing.read_hash(filepath, hash_length=hash_length)
 
-        # Read the existing hash
-        old_hash = hashing.read_hash(filename, hash_length=hash_length)
+            # Create a new hash to replace the exiting
+            new_hash = hashing.modify_hash(old_hash, args=args)
 
-        # Create a new hash to replace the exiting
-        new_hash = hashing.modify_hash(old_hash, args=args)
-
-        # Overwrite the original file with the new has
-        hashing.write_hash(new_hash, filename)
+            # Overwrite the original file with the new has
+            hashing.write_hash(new_hash, filepath)
 
 if __name__ == '__main__':
     main()
