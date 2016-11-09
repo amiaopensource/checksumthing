@@ -8,6 +8,7 @@ import subprocess
 import os
 import sys
 import glob
+import re
 
 def main():
 	parser = argparse.ArgumentParser(description="The Ultimate Checksum Script!")
@@ -33,7 +34,8 @@ def main():
 	for filename in glob.glob('*' + args.ie):
 	    with open(filename, 'r') as f:
 	        text = f.read()
-	        hashValue = text[:hashLength]
+	        m = re.search('([0-9a-f]{' + str(hashLength) + '})',text, flags=re.IGNORECASE)
+	        hashValue = m.group()
 	        if args.c == 'lower':
 	            hashValue = hashValue.lower()
 	        if args.c == 'upper':
