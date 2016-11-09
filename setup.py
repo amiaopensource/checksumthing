@@ -1,4 +1,9 @@
 from setuptools import setup
+import sys
+
+test_requirements = []
+if sys.version_info[0] < 3:
+    test_requirements.append('mock')
 
 setup(
     name='Checksumthing',
@@ -10,6 +15,7 @@ setup(
     },
     zip_safe=False,
     test_suite='tests',
+    tests_require=test_requirements,
     url='',
     license='',
     author='',

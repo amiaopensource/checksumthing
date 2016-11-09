@@ -25,10 +25,11 @@ def read_hash(filename, hash_length):
     pass
 
 
-def modify_hash(hash_value, args):
+def modify_hash(hash_value, filepath, args):
     """
     Generates a new hash from an existing hash.
     :param hash_value: Original hash value to be modified
+    :param filepath: the path of the checksum files being processed
     :param args: User arguments from arg parse
     :return: Newly generated hash value
     """
@@ -45,13 +46,14 @@ def modify_hash(hash_value, args):
     # if args.ns:
         new_hash = args.b + new_hash + args.a
     else:
-        before_text = args.b
-        after_text =  args.a
+        before_text = replace_file_parts(args.b, filepath, args)
+        after_text =  replace_file_parts(args.a, filepath, args)
         if before_text != '':
             before_text = before_text + ' '
         if after_text != '':
             after_text = ' ' + after_text
         new_hash = before_text + new_hash + after_text
+        
 
     return new_hash
 
@@ -75,3 +77,33 @@ def get_hash_length(hash_name):
     :return:
     """
     return hash_lengths[hash_name]
+    
+def replace_file_parts(input_string, filepath, args):
+    """
+    Replaces special strings with particular strings
+    
+    :param input_string: any string
+    :param filepath: the path of the checksum sidecar file being processed
+    :param args: User arguments from arg parse
+    :return:
+    """
+    
+    filepath = filepath.replace(args.ie, "")
+    
+    output_string = input_string.replace("{filename}", filepath.split("/")[-1])
+    output_string = input_string.replace("{fullpath}", filepath)
+    if args.outputPath:
+        output_string = input_string.replace("{relativepath}", filepath.replace(args.outputPath, ""))     
+
+    return output_string
+    
+def add_hash_to_manitest(manifest_path, hash_path, hash):
+    """
+    :param manifest_path: path to the manifest file
+    :param hash_path: path to the hash file
+    :param hash: the hash to be added to the manifest
+    """
+    
+    with open(manifest_path, "w+") as f:
+        f.write(hash + "\n")
+  

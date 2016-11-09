@@ -9,6 +9,8 @@ def get_args():
     parser = argparse.ArgumentParser(description="The Ultimate Checksum Script!")
 
     parser.add_argument('-i', '--inputDirectory', dest='i', help='The Directory To Process')
+    
+    parser.add_argument('-o', '--outputPath', help='The path to the output manifest file')
 
     parser.add_argument('-t', '--typeOfHash', dest='t', default='md5', help='Select the checksum type to process')
 
@@ -25,6 +27,13 @@ def get_args():
                         help='Any text entered here will appear after the hash in the sidecar file')
 
     parser.add_argument('-ns', '--noSpace', action='store_true',
-                        help='if true, the script will not add padding spaces to the before and after strings')
+                        help='if included, the script will not add padding spaces to the before and after strings')
+                        
+    parser.add_argument('-r', '--recursive', action='store_true',
+                        help='if true, the script will process all checksum files recursively through the input directory')
 
     return parser.parse_args()
+<<<<<<< HEAD
+    
+=======
+>>>>>>> b91c352751e7234c73a19535c7d3b1417085fee3
