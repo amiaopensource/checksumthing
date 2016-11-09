@@ -25,6 +25,14 @@ def read_hash(filename, hash_length):
     pass
 
 
+def decorate_hash(pre_hash, hash_value, post_hash, no_space=False):
+
+    if no_space:
+        return pre_hash + hash_value + post_hash
+    else:
+        return pre_hash + " " + hash_value + " " + post_hash.strip()
+
+
 def modify_hash(hash_value, filepath, args):
     """
     Generates a new hash from an existing hash.
@@ -47,7 +55,7 @@ def modify_hash(hash_value, filepath, args):
         new_hash = args.b + new_hash + args.a
     else:
         before_text = replace_file_parts(args.b, filepath, args)
-        after_text =  replace_file_parts(args.a, filepath, args)
+        after_text = replace_file_parts(args.a, filepath, args)
         if before_text != '':
             before_text = before_text + ' '
         if after_text != '':
@@ -91,7 +99,7 @@ def replace_file_parts(input_string, filepath, args):
     filepath = filepath.replace(args.ie, "")
     
     output_string = input_string.replace("{filename}", filepath.split("/")[-1])
-    output_string = input_string.replace("{fullpath}", filepath)
+    output_string = output_string.replace("{fullpath}", filepath)
     if args.outputPath:
         output_string = input_string.replace("{relativepath}", filepath.replace(args.outputPath, ""))     
 
