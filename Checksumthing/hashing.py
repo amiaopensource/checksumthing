@@ -41,7 +41,8 @@ def modify_hash(hash_value, args):
         new_hash = hash_value.upper()
     else:
         new_hash = hash_value
-    if args.ns:
+    if hasattr(args, "ns"):
+    # if args.ns:
         new_hash = args.b + new_hash + args.a
     else:
         new_hash = args.b + ' ' + new_hash + ' ' + args.a
