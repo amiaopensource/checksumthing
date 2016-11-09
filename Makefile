@@ -55,6 +55,12 @@ clean:
 		echo 'deleting tox cache'; \
 		rm -R .tox; \
 	fi
+
+	@if [ -d .eggs ]; then \
+		echo 'deleting .egg cache'; \
+		rm -R .eggs; \
+	fi
+
 	@if [ -d .cache ]; then \
 		rm -R .cache; \
 	fi
