@@ -92,5 +92,18 @@ def replace_file_parts(input_string, filepath, args):
     
     output_string = input_string.replace("{filename}", filepath.split("/")[-1])
     output_string = input_string.replace("{fullpath}", filepath)
+    if args.outputPath:
+        output_string = input_string.replace("{relativepath}", filepath.replace(args.outputPath, ""))     
 
     return output_string
+    
+def add_hash_to_manitest(manifest_path, hash_path, hash):
+    """
+    :param manifest_path: path to the manifest file
+    :param hash_path: path to the hash file
+    :param hash: the hash to be added to the manifest
+    """
+    
+    with open(manifest_path, "w+") as f:
+        f.write(hash + "\n")
+  

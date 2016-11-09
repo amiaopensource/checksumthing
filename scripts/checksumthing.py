@@ -45,7 +45,9 @@ def main():
             new_hash = hashing.modify_hash(old_hash, filepath, args=args)
 
             # Overwrite the original file with the new has
-            hashing.write_hash(new_hash, filepath)
+            if not args.outputPath:
+                hashing.write_hash(new_hash, filepath)
+            #else:
 
 if __name__ == '__main__':
     main()
