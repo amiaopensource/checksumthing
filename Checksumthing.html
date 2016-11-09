@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Checksumthing package &mdash; Checksumthing 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Checksumthing 0.0.1 documentation" href="index.html" />
+    <link rel="prev" title="Usage" href="usage.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="checksumthing-package">
+<h1>Checksumthing package<a class="headerlink" href="#checksumthing-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Checksumthing.hashing">
+<span id="checksumthing-hashing-module"></span><h2>Checksumthing.hashing module<a class="headerlink" href="#module-Checksumthing.hashing" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Checksumthing.hashing.add_hash_to_manitest">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">add_hash_to_manitest</code><span class="sig-paren">(</span><em>manifest_path</em>, <em>hash_path</em>, <em>hash</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.add_hash_to_manitest" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>manifest_path</strong> &#8211; path to the manifest file</li>
+<li><strong>hash_path</strong> &#8211; path to the hash file</li>
+<li><strong>hash</strong> &#8211; the hash to be added to the manifest</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.create_decoration">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">create_decoration</code><span class="sig-paren">(</span><em>input_string</em>, <em>filepath</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.create_decoration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces special strings with particular strings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>input_string</strong> &#8211; any string</li>
+<li><strong>filepath</strong> &#8211; the path of the checksum sidecar file being processed</li>
+<li><strong>args</strong> &#8211; User arguments from arg parse</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.decorate_hash">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">decorate_hash</code><span class="sig-paren">(</span><em>pre_hash</em>, <em>hash_value</em>, <em>post_hash</em>, <em>no_space=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.decorate_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.get_hash_length">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">get_hash_length</code><span class="sig-paren">(</span><em>hash_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.get_hash_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the length of a given Hash type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hash_name</strong> &#8211; String. name of hash file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.modify_hash">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">modify_hash</code><span class="sig-paren">(</span><em>hash_value</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.modify_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new hash from an existing hash.
+:param hash_value: Original hash value to be modified
+:param args: User arguments from arg parse
+:return: Newly generated hash value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.read_hash">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">read_hash</code><span class="sig-paren">(</span><em>filename</em>, <em>hash_length</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.read_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the hash value in a given file
+:param filename: path to a file to read hash value
+:param hash_length: Length of a file
+:return: Hash value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Checksumthing.hashing.write_hash">
+<code class="descclassname">Checksumthing.hashing.</code><code class="descname">write_hash</code><span class="sig-paren">(</span><em>new_hash</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#Checksumthing.hashing.write_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a hash value to a given file
+:param new_hash: The hash value
+:param filename: File path to the file to write to
+:return:</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Checksumthing package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-Checksumthing.hashing">Checksumthing.hashing module</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage.html" title="previous chapter">Usage</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Checksumthing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Henry Borchers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/Checksumthing.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
