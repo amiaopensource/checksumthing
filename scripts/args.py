@@ -28,3 +28,4 @@ def get_args():
                         help='if true, the script will not add padding spaces to the before and after strings')
 
     return parser.parse_args()
+    
