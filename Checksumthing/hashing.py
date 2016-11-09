@@ -45,7 +45,13 @@ def modify_hash(hash_value, args):
     # if args.ns:
         new_hash = args.b + new_hash + args.a
     else:
-        new_hash = args.b + ' ' + new_hash + ' ' + args.a
+        before_text = args.b
+        after_text =  args.a
+        if before_text != '':
+            before_text = before_text + ' '
+        if after_text != '':
+            after_text = ' ' + after_text
+        new_hash = before_text + new_hash + after_text
 
     return new_hash
 
