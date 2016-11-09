@@ -35,7 +35,3 @@ def get_args():
                         help='if true, the script will process all checksum files recursively through the input directory')
 
     return parser.parse_args()
-<<<<<<< HEAD
-    
-=======
->>>>>>> b91c352751e7234c73a19535c7d3b1417085fee3
