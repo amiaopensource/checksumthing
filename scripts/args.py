@@ -11,6 +11,8 @@ def get_args():
     parser.add_argument('-i', '--inputDirectory', dest='i', help='The Directory To Process')
     
     parser.add_argument('-o', '--outputPath', help='The path to the output manifest file')
+    
+    parser.add_argument('-m', '--manifestType', help='The the type of manifest file you want to create')
 
     parser.add_argument('-t', '--typeOfHash', dest='t', default='md5', help='Select the checksum type to process')
 
