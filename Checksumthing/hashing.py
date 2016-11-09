@@ -118,7 +118,8 @@ def add_hash_to_manitest(manifest_path, hash_path, hash):
     :param hash: the hash to be added to the manifest
     """
 
-    warnings.warn("The 'add_hash_to_manitest' class was Deprecated", DeprecationWarning)
+    warnings.warn("The 'add_hash_to_manitest' class was Deprecated. "
+                  "Use Checksumthing.manifest_formats.manifest instead.", DeprecationWarning)
 
     with open(manifest_path, "w+") as f:
         f.write(hash + "\n")
