@@ -1,2 +1,2 @@
-from .textManifest import TextManififest
+from .textManifest import TextManifest
 from .manifest import Manifest
