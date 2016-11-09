@@ -1,5 +1,9 @@
 import os
 import re
+import warnings
+
+# Always warn of Deprecations
+warnings.simplefilter('always', DeprecationWarning)
 
 hash_lengths = {'md5': 32,
                 'sha1': 40,
@@ -113,7 +117,9 @@ def add_hash_to_manitest(manifest_path, hash_path, hash):
     :param hash_path: path to the hash file
     :param hash: the hash to be added to the manifest
     """
-    
+
+    warnings.warn("The 'add_hash_to_manitest' class was Deprecated", DeprecationWarning)
+
     with open(manifest_path, "w+") as f:
         f.write(hash + "\n")
   
