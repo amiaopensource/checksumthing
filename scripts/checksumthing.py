@@ -41,13 +41,14 @@ def main():
             old_hash = hashing.read_hash(filepath, hash_length=hash_length)
 
             # Create a new hash to replace the exiting
-            new_hash = hashing.modify_hash(old_hash, filepath, args=args)
+            new_hash = hashing.modify_hash(old_hash, args=args)
 
             # Overwrite the original file with the new has
             if args.outputPath:
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, new_hash)
             else:
-                hashing.write_hash(new_hash, filepath)
+                decorated_hash = hashing.decorate_hash(args.b, new_hash, args.a)
+                hashing.write_hash(decorated_hash, filepath)
 if __name__ == '__main__':
     main()
