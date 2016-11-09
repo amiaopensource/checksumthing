@@ -15,6 +15,7 @@ def get_args():
     :return: Parsed arguments
     """
     parser = argparse.ArgumentParser(description="The Ultimate Checksum Script!")
+
     parser.add_argument('-i', '--inputDirectory', dest='i', help='The Directory To Process')
 
     parser.add_argument('-t', '--typeOfHash', dest='t', default='md5', help='Select the checksum type to process')
@@ -31,7 +32,7 @@ def get_args():
     parser.add_argument('-a', '--after', dest='a', default='',
                         help='Any text entered here will appear after the hash in the sidecar file')
 
-    parser.add_argument('-ns', '--noSpace', dest='ns', default=False,
+    parser.add_argument('-ns', '--noSpace', action='store_true',
                         help='if true, the script will not add padding spaces to the before and after strings')
 
     return parser.parse_args()
