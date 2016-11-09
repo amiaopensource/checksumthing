@@ -47,6 +47,7 @@ def main():
             if args.outputPath:
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, new_hash)
-
+            else:
+                hashing.write_hash(new_hash, filepath)
 if __name__ == '__main__':
     main()
