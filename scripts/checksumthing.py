@@ -3,9 +3,8 @@
 # Checksumthing.py
 
 
-import glob
 import os
-
+from Checksumthing import manifest_formats
 from Checksumthing import hashing
 from scripts.args import get_args
 
@@ -45,9 +44,9 @@ def main():
             new_hash = hashing.modify_hash(old_hash, filepath, args=args)
 
             # Overwrite the original file with the new has
-            if not args.outputPath:
-                hashing.write_hash(new_hash, filepath)
-            #else:
+            if args.outputPath:
+                manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
+                manifest_file.add_line(args.outputPath, filepath, new_hash)
 
 if __name__ == '__main__':
     main()
