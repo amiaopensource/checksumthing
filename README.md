@@ -8,6 +8,10 @@ checksumthing helps you transform your checksum files in the format that you wan
 ## Software Requirements and Compatibility
 Python
 
+## How to Install
+1. From the command line, run `$ python setup.py install`. This will install checksumthing as a command on your computer.
+2. Run `checksumthing`.
+
 ## How to use checksumthing
 1. Install checksumthing
 2. Run checksumthing.py 
