@@ -13,7 +13,7 @@ def main():
 
     # Read in the user arguments
     args = get_args()
-
+    args.i = os.path.abspath(args.i)
     print("Starting analysis on " + args.t + " type checksums in " + os.path.basename(args.i))
 
     # Calculate the length of the hash value for the given type.
@@ -48,7 +48,14 @@ def main():
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, new_hash)
             else:
-                decorated_hash = hashing.decorate_hash(args.pre, new_hash, args.post)
+                pre_hash_text = hashing.create_decoration(args.pre, filepath, args)
+                post_hash_text = hashing.create_decoration(args.post, filepath, args)
+                decorated_hash = hashing.decorate_hash(pre_hash_text, new_hash, post_hash_text, args.noSpace)
                 hashing.write_hash(decorated_hash, filepath)
+            
+            #if not quiet
+            if not args.quiet:
+                print("Finished Prossessing " + filepath)
+            
 if __name__ == '__main__':
     main()

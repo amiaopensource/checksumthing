@@ -15,8 +15,8 @@ def get_args():
     parser.add_argument('-m', '--manifestType', help='The the type of manifest file you want to create')
 
     parser.add_argument('-t', '--typeOfHash', dest='t', default='md5', help='Select the checksum type to process')
-
-    parser.add_argument('-ie', '--inputExtension', dest='ie', default='.md5',
+    
+    parser.add_argument('-ie', '--inputExtension', dest='ie', default=".md5",
                         help='Select the extension of the input files')
 
     parser.add_argument('-c', '--caseOutput', dest='c', default='lower',
@@ -33,5 +33,9 @@ def get_args():
                         
     parser.add_argument('-r', '--recursive', action='store_true',
                         help='if true, the script will process all checksum files recursively through the input directory')
+    
+    parser.add_argument('-q', '--quiet', action='store_true',
+                        help='if true, the script will not output every step to the command line')
 
+    
     return parser.parse_args()
