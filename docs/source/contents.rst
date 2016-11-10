@@ -20,3 +20,4 @@ expanding on it.
     :maxdepth: 1
 
     Checksumthing.rst
+    manifest_formats.rst
