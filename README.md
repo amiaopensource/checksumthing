@@ -10,14 +10,14 @@ checksumthing helps you transform your checksum files in the format that you wan
 Checksumthing currently supports MD5, SHA1, and SHA256 checksums. Right now the script only supports plaintext sidecar files. In the future, we hope to support CSV and other types of files.
 
 ## Software Requirements and Compatibility
-Python
+Python 2.7 or 3.0
+Checksumthing currently functions in Mac OS 10. Other operating systems have not been tested.
 
-## How to Install
-1. From the command line, run `$ python setup.py install`. This will install checksumthing as a command on your computer.
+## How to Run or Install
+You can run checksumthing straight out of the box by cloning the repostory and then going to the "checksumthing" directory and running `python checksumthing.py` along with the arguments that you need. 
 
-## How to use checksumthing
-1. From the command line, run `$   `
+There is also an install process that allows you run checksumthing as a regular command. To install, clone the repository and then navigate to your checksumthing directory. Run `$ python setup.py install`. This feature is currently not functioning. See [Bug #6](https://github.com/amiaopensource/checksumthing/issues/6).  
 
-For more information please see the [online documentation][1]. 
+For more information on running checksumthing please see the [online documentation][1]. 
 
 [1]: https://amiaopensource.github.io/checksumthing/
