@@ -111,7 +111,9 @@ def create_decoration(input_string, filepath, args):
     output_string = output_string.replace("{fullpath}", filepath)
 
     if args.outputPath:
-        output_string = output_string.replace("{relativepath}", filepath)
+        manifest_dir_path = os.path.dirname(args.outputPath)
+        relative_path = filepath.replace(manifest_dir_path, "")
+        output_string = output_string.replace("{relativepath}", relative_path)
 
     return output_string
 
