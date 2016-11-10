@@ -30,7 +30,7 @@ def main():
         if sys.version_info[0] < 3:
             user_entry = raw_input("The specified output file already exists, do you want to overwrite? (y/n): ")
             if user_entry == "y":
-                print("Manifest Overwritten!")
+                print("Manifest Overwritten! Have a nice day B^)")
                 with open(args.outputPath, "w") as f:
                     f.write("")
             else:
@@ -39,7 +39,7 @@ def main():
         else:
             user_entry = input("The specified output file already exists, do you want to overwrite? (y/n): ")
             if user_entry == "y":
-                print("Manifest Overwritten!")
+                print("Manifest Overwritten! Have a nice day B^)")
                 with open(args.outputPath, "w") as f:
                     f.write("")
             else:
