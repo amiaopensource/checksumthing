@@ -22,10 +22,10 @@ def get_args():
     parser.add_argument('-c', '--caseOutput', dest='c', default='lower',
                         help='Define the case of the output hash letters. use lower or upper, defaults to lower')
 
-    parser.add_argument('-b', '--before', dest='b', default='',
+    parser.add_argument('-pre', '--preHashText', dest='pre', default='',
                         help='Any text entered here will appear before the hash in the sidecar file')
 
-    parser.add_argument('-a', '--after', dest='a', default='',
+    parser.add_argument('-post', '--postHashText', dest='post', default='',
                         help='Any text entered here will appear after the hash in the sidecar file')
 
     parser.add_argument('-ns', '--noSpace', action='store_true',

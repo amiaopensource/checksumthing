@@ -48,7 +48,7 @@ def main():
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, new_hash)
             else:
-                decorated_hash = hashing.decorate_hash(args.b, new_hash, args.a)
+                decorated_hash = hashing.decorate_hash(args.pre, new_hash, args.post)
                 hashing.write_hash(decorated_hash, filepath)
 if __name__ == '__main__':
     main()
