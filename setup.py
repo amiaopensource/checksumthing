@@ -8,7 +8,7 @@ if sys.version_info[0] < 3:
 setup(
     name='Checksumthing',
     version='0.0.1',
-    packages=['Checksumthing'],
+    packages=['Checksumthing', 'Checksumthing.manifest_formats'],
     scripts=['scripts/checksumthing.py'],
     entry_points={
         'console_scripts': ['checksumthing=checksumthing:main']
