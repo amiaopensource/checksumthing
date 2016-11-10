@@ -7,8 +7,8 @@ program under the hood.
 .. toctree::
     :maxdepth: 1
 
-    installation
-    usage
+    installation.rst
+    usage.rst
 
 API Reference
 -------------
@@ -19,4 +19,4 @@ expanding on it.
 .. toctree::
     :maxdepth: 1
 
-    Checksumthing
+    Checksumthing.rst
