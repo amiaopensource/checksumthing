@@ -21,4 +21,30 @@ It's that simple!
 
             $ checksumthing -h
 
+            usage: checksumthing.py [-h] [-i I] [-o OUTPUTPATH] [-m MANIFESTTYPE] [-t T]
+                                    [-ie IE] [-c C] [-b B] [-a A] [-ns] [-r]
+
+            The Ultimate Checksum Script!
+
+            optional arguments:
+              -h, --help            show this help message and exit
+              -i I, --inputDirectory I
+                                    The Directory To Process
+              -o OUTPUTPATH, --outputPath OUTPUTPATH
+                                    The path to the output manifest file
+              -m MANIFESTTYPE, --manifestType MANIFESTTYPE
+                                    The the type of manifest file you want to create
+              -t T, --typeOfHash T  Select the checksum type to process
+              -ie IE, --inputExtension IE
+                                    Select the extension of the input files
+              -c C, --caseOutput C  Define the case of the output hash letters. use lower
+                                    or upper, defaults to lower
+              -b B, --before B      Any text entered here will appear before the hash in
+                                    the sidecar file
+              -a A, --after A       Any text entered here will appear after the hash in
+                                    the sidecar file
+              -ns, --noSpace        if included, the script will not add padding spaces to
+                                    the before and after strings
+              -r, --recursive       if true, the script will process all checksum files
+                                    recursively through the input directory
 
