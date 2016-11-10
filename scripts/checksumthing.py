@@ -43,7 +43,7 @@ def main():
             # Create a new hash to replace the exiting
             new_hash = hashing.modify_hash(old_hash, args=args)
 
-            # Overwrite the original file with the new has
+            # Overwrite the original file with the new hash
             if args.outputPath:
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, new_hash)
