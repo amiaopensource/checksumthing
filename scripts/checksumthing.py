@@ -26,28 +26,29 @@ def main():
         exit()
 
     # If output path specified, initialize manifest file
-    if os.path.exists(args.outputPath):
-        if sys.version_info[0] < 3:
-            user_entry = raw_input("The specified output file already exists, do you want to overwrite? (y/n): ")
-            if user_entry == "y":
-                print("Manifest Overwritten! Have a nice day B^)")
-                with open(args.outputPath, "w") as f:
-                    f.write("")
+    if args.outputPath:
+        if os.path.exists(args.outputPath):
+            if sys.version_info[0] < 3:
+                user_entry = raw_input("The specified output file already exists, do you want to overwrite? (y/n): ")
+                if user_entry == "y":
+                    print("Manifest Overwritten! Have a nice day B^)")
+                    with open(args.outputPath, "w") as f:
+                        f.write("")
+                else:
+                    print("Quitting Script!")
+                    return
             else:
-                print("Quitting Script!")
-                return
+                user_entry = input("The specified output file already exists, do you want to overwrite? (y/n): ")
+                if user_entry == "y":
+                    print("Manifest Overwritten! Have a nice day B^)")
+                    with open(args.outputPath, "w") as f:
+                        f.write("")
+                else:
+                    print("Quitting Script!")
+                    return
         else:
-            user_entry = input("The specified output file already exists, do you want to overwrite? (y/n): ")
-            if user_entry == "y":
-                print("Manifest Overwritten! Have a nice day B^)")
-                with open(args.outputPath, "w") as f:
-                    f.write("")
-            else:
-                print("Quitting Script!")
-                return
-    else:
-        with open(args.outputPath, "w") as f:
-            f.write("")
+            with open(args.outputPath, "w") as f:
+                f.write("")
         
 
     # Cycle through the given files of the inputExtension at the inputDirectory
@@ -77,12 +78,12 @@ def main():
             if args.outputPath:
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
                 manifest_file.add_line(args.outputPath, filepath, decorated_hash)
+                if not args.quiet:
+                    print("Finished Writing to Manifest: " + filepath)
             else:
                 hashing.write_hash(decorated_hash, filepath)
-            
-            #if not quiet
-            if not args.quiet:
-                print("Finished Prossessing " + filepath)
+                if not args.quiet:
+                    print("Finished Prossessing: " + filepath)
             
 if __name__ == '__main__':
     main()
