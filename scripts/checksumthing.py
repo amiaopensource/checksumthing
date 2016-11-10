@@ -7,6 +7,7 @@ import os
 from Checksumthing import manifest_formats
 from Checksumthing import hashing
 from scripts.args import get_args
+import sys
 
 
 def main():
@@ -23,6 +24,31 @@ def main():
         # If an invalid key is given, exit.
         print("Invalid hash type.")
         exit()
+
+    # If output path specified, initialize manifest file
+    if os.path.exists(args.outputPath):
+        if sys.version_info[0] < 3:
+            user_entry = raw_input("The specified output file already exists, do you want to overwrite? (y/n): ")
+            if user_entry == "y":
+                print("Manifest Overwritten!")
+                with open(args.outputPath, "w") as f:
+                    f.write("")
+            else:
+                print("Quitting Script!")
+                return
+        else:
+            user_entry = input("The specified output file already exists, do you want to overwrite? (y/n): ")
+            if user_entry == "y":
+                print("Manifest Overwritten!")
+                with open(args.outputPath, "w") as f:
+                    f.write("")
+            else:
+                print("Quitting Script!")
+                return
+    else:
+        with open(args.outputPath, "w") as f:
+            f.write("")
+        
 
     # Cycle through the given files of the inputExtension at the inputDirectory
 
@@ -44,13 +70,14 @@ def main():
             new_hash = hashing.modify_hash(old_hash, args=args)
 
             # Overwrite the original file with the new hash
+            pre_hash_text = hashing.create_decoration(args.pre, filepath, args)
+            post_hash_text = hashing.create_decoration(args.post, filepath, args)
+            decorated_hash = hashing.decorate_hash(pre_hash_text, new_hash, post_hash_text, args.noSpace)
+            
             if args.outputPath:
                 manifest_file = manifest_formats.Manifest(manifest_formats.TextManifest())
-                manifest_file.add_line(args.outputPath, filepath, new_hash)
+                manifest_file.add_line(args.outputPath, filepath, decorated_hash)
             else:
-                pre_hash_text = hashing.create_decoration(args.pre, filepath, args)
-                post_hash_text = hashing.create_decoration(args.post, filepath, args)
-                decorated_hash = hashing.decorate_hash(pre_hash_text, new_hash, post_hash_text, args.noSpace)
                 hashing.write_hash(decorated_hash, filepath)
             
             #if not quiet
