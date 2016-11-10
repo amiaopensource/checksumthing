@@ -14,6 +14,7 @@ hash_lengths = {'md5': 32,
 def read_hash(filename, hash_length):
     """
     Reads the hash value in a given file
+
     :param filename: path to a file to read hash value
     :param hash_length: Length of a file
     :return: Hash value
@@ -41,6 +42,7 @@ def decorate_hash(pre_hash, hash_value, post_hash, no_space=False):
 def modify_hash(hash_value, args):
     """
     Generates a new hash from an existing hash.
+
     :param hash_value: Original hash value to be modified
     :param args: User arguments from arg parse
     :return: Newly generated hash value
@@ -74,6 +76,7 @@ def modify_hash(hash_value, args):
 def write_hash(new_hash, filename):
     """
     Writes a hash value to a given file
+
     :param new_hash: The hash value
     :param filename: File path to the file to write to
     :return:
