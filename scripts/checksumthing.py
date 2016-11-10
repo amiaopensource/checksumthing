@@ -27,7 +27,7 @@ def main():
 
     # If output path specified, initialize manifest file
     if args.outputPath:
-        if os.path.exists(args.outputPath):
+        if os.path.exists(args.outputPath) and not args.force:
             if sys.version_info[0] < 3:
                 user_entry = raw_input("The specified output file already exists, do you want to overwrite? (y/n): ")
                 if user_entry == "y":
@@ -49,6 +49,20 @@ def main():
         else:
             with open(args.outputPath, "w") as f:
                 f.write("")
+    else:
+        if not args.force:
+            if sys.version_info[0] < 3:
+                user_entry = raw_input("This will overwrite all of your existing checksum files. Continue? (y/n): ")
+                if user_entry != "y":
+                    print("Quitting Script!")
+                    return
+            else:
+                user_entry = input("This will overwrite all of your existing checksum files. Continue? (y/n): ")
+                if user_entry != "y":
+                    print("Quitting Script!")
+                    return
+            
+        
         
 
     # Cycle through the given files of the inputExtension at the inputDirectory
@@ -84,6 +98,8 @@ def main():
                 hashing.write_hash(decorated_hash, filepath)
                 if not args.quiet:
                     print("Finished Prossessing: " + filepath)
+                    
+    print("Done!")
             
 if __name__ == '__main__':
     main()

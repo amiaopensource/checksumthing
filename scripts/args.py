@@ -32,10 +32,13 @@ def get_args():
                         help='if included, the script will not add padding spaces to the before and after strings')
                         
     parser.add_argument('-r', '--recursive', action='store_true',
-                        help='if true, the script will process all checksum files recursively through the input directory')
+                        help='if included, the script will process all checksum files recursively through the input directory')
     
     parser.add_argument('-q', '--quiet', action='store_true',
-                        help='if true, the script will not output every step to the command line')
+                        help='if included, the script will not output every step to the command line')
+                        
+    parser.add_argument('-f', '--force', action='store_true',
+                        help='if included, the script will not ask before overwriting any files')
 
     
     return parser.parse_args()
