@@ -21,3 +21,16 @@ There is also an install process that allows you run checksumthing as a regular 
 For more information on running checksumthing please see the [online documentation][1]. 
 
 [1]: https://amiaopensource.github.io/checksumthing/
+
+## Running checksumthing with Sample Data
+Our repository includes some sample files and checksum files to work with located in the (suprise, surprise) `Sample_Data` folder. You can run these sample commands from the checksumthing directory:
+
+```
+python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c upper -r -pre '#######' -post '*{relativepath}'
+```
+The above command will attempt to overwrite the data in the existing .md5 files with with "#######" appearing before the checksum and then the relative path to the associated file appearing after the checksum. It will also make the checksum all upper case. The command will work recursively through all the sample folders. It will prompt the user before overwriting any files.
+
+```
+python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c upper -r -pre '#######' -post '*{relativepath}' -o Sample_Files/checksum_manifest.txt
+```
+The above command will create a manifest file called "checksum_manifest.txt" with a list of checksums for all the sample files. For each file, it will print "#######" before the checksum (the checksum will be in upper case) and then print the relative path to the file. If a manifest already exists, it will prompt the user to make sure they would like to overwrite the existing manifest.
