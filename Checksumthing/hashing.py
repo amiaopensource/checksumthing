@@ -36,7 +36,15 @@ def decorate_hash(pre_hash, hash_value, post_hash, no_space=False):
     if no_space:
         return pre_hash + hash_value + post_hash
     else:
-        return pre_hash + " " + hash_value + " " + post_hash
+        if pre_hash == "" and post_hash == "":
+            return hash_value
+        elif pre_hash == "" and post_hash != "":
+            return hash_value + ' ' + post_hash
+        elif pre_hash != "" and post_hash == "":
+            return pre_hash + ' ' + hash_value
+        else:
+            return pre_hash + ' ' + hash_value + ' ' + post_hash
+        
 
 
 def modify_hash(hash_value, args):
