@@ -41,4 +41,7 @@ python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c lower -r -pre '{file
 ```
 Notice, the use of the -ns flag, which removes spaces between the pre, hash, and post portions of the text. Without this flag, there would be a space added to the hash, which could cause problems. 
 
-
+This script can also be used to mimick the output of other checksum creation tools. The following string mimicks the output of the md5deep tool in recursive mode:
+```
+python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c lower -r -post ' {fullpath}' -o Sample_Files/md5deepstyle.txt
+```
