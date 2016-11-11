@@ -16,14 +16,14 @@ Checksumthing currently supports MD5, SHA1, and SHA256 checksums. Right now the 
 ## How to Run or Install
 You can run checksumthing straight out of the box by [cloning the repostory](https://help.github.com/articles/cloning-a-repository/), opening up the command line (Terminal in Mac OS X), navigating to the "checksumthing" directory, and running `$ python checksumthing.py` along with any arguments that you need. 
 
-There is also an install process that allows you run checksumthing as a regular command. To install, clone the repository and then navigate to your checksumthing directory. Run `$ python setup.py install`. To test your install run `$ checksumthing -h`. You should see the help menu.
+There is also an install process that allows you run checksumthing as a regular command. To install, clone the repository and then navigate to your checksumthing directory. Run `$ python setup.py install`. To test your install run `$ checksumthing -h`. If you see the checksumthing help menu the install was successful. Time to put down your cocktail!
 
 For more information on running checksumthing please see the [online documentation][1]. 
 
 [1]: https://amiaopensource.github.io/checksumthing/
 
 ## Running checksumthing with Sample Data
-Our repository includes some sample files and checksum files to work with located in the (suprise, surprise) `Sample_Data` folder. You can run these sample commands from the checksumthing directory:
+Our repository includes some sample image files and checksum files to work with located in the (suprise, surprise) `Sample_Files` folder. These sample commands are designed to be run from the checksumthing directory:
 
 ```
 python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c upper -r -pre '#######' -post '*{relativepath}'
