@@ -10,7 +10,7 @@ checksumthing helps you transform your checksum files in the format that you wan
 Checksumthing currently supports MD5, SHA1, and SHA256 checksums. Right now the script only supports plaintext sidecar files. In the future, we hope to support CSV and other types of files.
 
 ## Software Requirements and Compatibility
-* Mac OS X with Python 2.7 or 3.0
+* Mac OS X with Python 2.7 or 3.x
 * Windows 10 and Linux with Python 2.7
 
 ## How to Run or Install
@@ -34,3 +34,11 @@ The above command will attempt to overwrite the data in the existing .md5 files 
 python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c upper -r -pre '#######' -post '*{relativepath}' -o Sample_Files/checksum_manifest.txt
 ```
 The above command will create a manifest file called "checksum_manifest.txt" with a list of checksums for all the sample files. For each file, it will print "#######" before the checksum (the checksum will be in upper case) and then print the relative path to the file. If a manifest already exists, it will prompt the user to make sure they would like to overwrite the existing manifest.
+
+Currently, the script cannot make csv files through a dedicated method. However, we can make csv files by hacking the current manifest creation method. Let's say you want a csv file where the first column is the filename, the second column is the relative path to the file, and the third column is the hash with lowercase letters. The follow string would create this for you:
+```
+python checksumthing.py -i Sample_Files/ -ie .md5 -t md5 -c lower -r -pre '{filename},{relativepath},' -ns -o Sample_Files/checksum_manifest.csv
+```
+Notice, the use of the -ns flag, which removes spaces between the pre, hash, and post portions of the text. Without this flag, there would be a space added to the hash, which could cause problems. 
+
+
