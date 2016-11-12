@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Checksumthing’s documentation! &mdash; Checksumthing 0.0.1 documentation</title>
+    <title>Welcome to Checksumthing’s documentation! &#8212; Checksumthing 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,14 +24,19 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Checksumthing 0.0.1 documentation" href="#" />
     <link rel="next" title="Installation" href="installation.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -41,12 +46,24 @@
   <div class="section" id="welcome-to-checksumthing-s-documentation">
 <h1>Welcome to Checksumthing&#8217;s documentation!<a class="headerlink" href="#welcome-to-checksumthing-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
 <p>Created as a part of the 2016 AMIA Hack day hackathon.</p>
+<p>The ultimate checksum script! Checksumthing helps you create different kinds of checksum sidecar files.</p>
+</div>
+<div class="section" id="what-is-checksumthing">
+<h2>What is checksumthing?<a class="headerlink" href="#what-is-checksumthing" title="Permalink to this headline">¶</a></h2>
+<p>checksumthing helps you transform your checksum files in the format that you want. Different pieces of software used to
+produce checksums create sidecar files (typically files ending in .md5 or .sha1) with very different formatting, which
+creates headaches for archivists—we love standards and loathe disorder. checksumthing is a Python script that can solve
+this problem by allowing users to transform the data inside sidecar files into a standardized format most convenient
+for them. For example, you can:</p>
+<p>Append text before or after the checksum value (like the path to the file or the filename)
+Change the checksum text to all caps or all lowercase
+Search for checksum files and transform files through a nested directory structure
+checksumthing currently supports MD5, SHA1, and SHA256 checksums. Right now the script only supports plaintext sidecar
+files. In the future, we hope to support CSV and other types of files.</p>
 </div>
 <div class="section" id="user-s-guide">
 <h2>User&#8217;s Guide<a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h2>
@@ -90,6 +107,7 @@ expanding on it.</p>
   <ul>
 <li><a class="reference internal" href="#">Welcome to Checksumthing&#8217;s documentation!</a><ul>
 <li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#what-is-checksumthing">What is checksumthing?</a></li>
 <li><a class="reference internal" href="#user-s-guide">User&#8217;s Guide</a></li>
 <li><a class="reference internal" href="#api-reference">API Reference</a></li>
 </ul>
@@ -114,8 +132,8 @@ expanding on it.</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -126,11 +144,11 @@ expanding on it.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Henry Borchers.
+      &copy;none.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
       <a href="_sources/index.txt"
