@@ -18,7 +18,7 @@ setup(
     tests_require=test_requirements,
     url='https://amiaopensource.github.io/checksumthing/',
     license='GPL3',
-    author='Henry Borchers, Joshua Ng, Reto, Jonathan Farbowitz, Morgan Oscar Morel, Crystal Sanchez',
+    author='Henry Borchers, Joshua Ng, Reto Kromer, Jonathan Farbowitz, Morgan Oscar Morel, Crystal Sanchez',
     author_email='',
     description='The ultimate checksum script! Checksumthing helps you create different kinds of checksum sidecar files'
 )
