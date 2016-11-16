@@ -11,7 +11,8 @@ checksumthing currently supports MD5, SHA1, and SHA256 checksums. Right now the 
 
 ## Software Requirements and Compatibility
 * Mac OS X with Python 2.7 or 3.x
-* Tested on [Windows Subsystem for Linux (Bash on Ubuntu on Windows)][1] with Python 2.7. So it should theoretically work on Ubuntu 14.04.5 LTS too. 
+* Tested on [Windows Subsystem for Linux (Bash on Ubuntu on Windows)][1] with Python 2.7. So it should theoretically work on Ubuntu 14.04.5 LTS too.
+* Tested on Ubuntu 16.04 LTS with Python 2.7.12
 
 ## How to Run or Install
 You can run checksumthing straight out of the box by [cloning the repostory](https://help.github.com/articles/cloning-a-repository/), opening up the command line (Terminal in Mac OS X), navigating to the "checksumthing" directory, and running `python checksumthing.py` along with any arguments that you need. 
