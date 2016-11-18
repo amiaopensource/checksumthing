@@ -4,7 +4,6 @@ TOX         ?= tox
 current_dir = $(shell pwd)
 DOC_BUILD   = $(current_dir)/docs/build
 
-
 .PHONY: docs tox-test
 
 all:
@@ -24,9 +23,11 @@ install-sphinx:
 install: docs
 	@echo "installing checksumthing"
 	@$(PYTHON) setup.py install
+
 docs: install-sphinx
 	@echo 'creating Sphinx documentation'
 	@$(PYTHON) setup.py build_sphinx
+
 tox-test: install-tox
 	@echo 'running tox tests'
 	@$(TOX)
@@ -35,16 +36,14 @@ clean:
 	@$(PYTHON) setup.py clean
 
 	@if [ -d docs/build ]; then \
-	    echo 'deleting generated documentation'; \
+	    	echo 'deleting generated documentation'; \
 		rm -R docs/build; \
-    fi
-
+    	fi
 
 	@if [ -d build ]; then \
-	    echo 'deleting build'; \
-    	rm -R build; \
-    fi
-
+	    	echo 'deleting build'; \
+    		rm -R build; \
+    	fi
 
 	@if [ -d dist ]; then \
 		echo 'deleting dist'; \
