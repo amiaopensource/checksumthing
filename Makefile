@@ -69,7 +69,6 @@ clean:
 		rm -R checksumthing.egg-info; \
 	fi
 
-
 uninstall:
 	@echo 'Uninstalling Checksumthing'
 	@$(PIP) uninstall Checksumthing -y
